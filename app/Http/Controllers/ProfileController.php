@@ -8,9 +8,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Profile;
+
 
 class ProfileController extends Controller
 {
+
+    public function index()
+    {
+        // Haal alle profielen op
+        $profielen = Profile::with('user')->get(); 
+
+        return view('profielen.index', compact('profielen'));
+    }
+
     /**
      * Display the user's profile form.
      */

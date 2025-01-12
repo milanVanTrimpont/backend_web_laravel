@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Models\Profile;
+
 
 class RegisteredUserController extends Controller
 {
@@ -39,6 +41,13 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+        ]);
+
+        // Maak automatisch een profiel aan voor de gebruiker
+        $profiel = Profile::create([
+            'user_id' => $user->id,
+            'gebruikersnaam' => $user->name,  // Gebruikersnaam kan standaard de naam zijn
+            'bio' => 'Welkom op mijn profiel!',  // Standaard bio
         ]);
 
         event(new Registered($user));
