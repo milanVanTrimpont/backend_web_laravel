@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NieuwsItemController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('profielen', [ProfileController::class, 'index'])->name('profielen');
+
+Route::get('/nieuws', [NieuwsItemController::class, 'index'])->name('nieuws');
 
 
 Route::middleware('auth')->group(function () {
