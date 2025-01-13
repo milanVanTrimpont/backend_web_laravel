@@ -25,6 +25,10 @@ class ProfileUpdateRequest extends FormRequest
                 'max:255',
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
+            'gebruikersnaam' => ['required', 'string', 'max:255', 'unique:profielen,gebruikersnaam,' . $this->user()->profile->id],
+            'verjaardag' => ['required', 'date'],
+            'bio' => ['nullable', 'string', 'max:1000'],
+            'profielfoto' => ['nullable', 'image', 'max:2048'],
         ];
     }
 }

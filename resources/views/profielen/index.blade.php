@@ -18,7 +18,9 @@
                     <div class="col-md-4">
                         <div class="profiel">
                             <strong>{{ $profiel->gebruikersnaam }}</strong>
-                            <img src="{{ asset($profiel->profielfoto) }}" alt="profiel Picture" style="max-width: 200px;">
+                            <img src="{{ $profiel->profielfoto ? asset('storage/' . $profiel->profielfoto) : asset('foto/default-picture.png') }}" 
+                                alt="Profile Picture" 
+                                style="max-width: 50px; border-radius: 50%; margin-right: 10px;">
                             <p><strong>Verjaardag:</strong> {{ $profiel->verjaardag }}</p>
                             <p><strong>Bio:</strong> {{ $profiel->bio }}</p>
                         </div>

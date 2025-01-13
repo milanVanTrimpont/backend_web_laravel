@@ -27,8 +27,12 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $user = $request->user();
+        $profile = $user->profile; // Profiellink ophalen via de relatie
+
         return view('profile.edit', [
-            'user' => $request->user(),
+            'user' => $user,
+            'profile' => $profile, // Profielgegevens doorgeven aan de view
         ]);
     }
 
@@ -37,16 +41,37 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = $request->user();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        // Update de user gegevens
+        $user->fill($request->validated());
+
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
         }
 
-        $request->user()->save();
+        $user->save();
+
+        // Update de profielgegevens
+        $profileData = $request->only(['gebruikersnaam', 'verjaardag', 'bio']);
+
+        // Profielfoto uploaden indien aanwezig
+        if ($request->hasFile('profielfoto')) {
+            $profielfotoPath = $request->file('profielfoto')->store('profile-pictures', 'public');
+
+            // Oude profielfoto verwijderen als er al een was
+            if ($user->profile->profielfoto) {
+                Storage::disk('public')->delete($user->profile->profielfoto);
+            }
+
+            $profileData['profielfoto'] = $profielfotoPath;
+        }
+
+        $user->profile()->update($profileData);
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
+    
 
     /**
      * Delete the user's account.
