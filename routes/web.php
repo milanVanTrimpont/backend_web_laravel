@@ -16,6 +16,7 @@ Route::get('/dashboard', function () {
 Route::get('profielen', [ProfileController::class, 'index'])->name('profielen');
 
 Route::get('/nieuws', [NieuwsItemController::class, 'index'])->name('nieuws');
+Route::post('/nieuws', [NieuwsItemController::class, 'store'])->name('nieuws.store');
 
 
 Route::middleware('auth')->group(function () {
