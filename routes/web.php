@@ -17,6 +17,8 @@ Route::get('profielen', [ProfileController::class, 'index'])->name('profielen');
 
 Route::get('/nieuws', [NieuwsItemController::class, 'index'])->name('nieuws');
 Route::post('/nieuws', [NieuwsItemController::class, 'store'])->name('nieuws.store');
+Route::delete('/nieuws/{nieuws}', [NieuwsItemController::class, 'destroy'])->name('nieuws.destroy');
+
 
 
 Route::middleware('auth')->group(function () {

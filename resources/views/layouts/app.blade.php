@@ -17,6 +17,14 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
+    
+            <!-- Status Popup -->
+            @if (session('status'))                                   <!-- na 5 seconden verwijderen -->
+                <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 5000)" 
+                    class="fixed bottom-5 right-5 bg-green-600 text-black px-6 py-3 rounded-lg shadow-lg transition-all duration-500 opacity-100">
+                    <strong class="font-semibold">Success!</strong> {{ session('status') }}
+                </div>
+            @endif
 
             <!-- Page Heading -->
             @isset($header)

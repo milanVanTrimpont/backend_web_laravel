@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <!-- Formulier voor Nieuw Nieuwsartikel -->
+                <!-- Formulier voor een nieuw artikel aan te maken -->
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                     <div class="max-w-xl">
                         @include('nieuws.partials.nieuw-nieuwsartikel-form')
@@ -25,6 +25,14 @@
                                 @endif
                                 <p>{{ Str::limit($nieuwsItem->content, 100) }}</p>
                                 <p class="text-sm text-gray-500 mt-2">Published: {{ $nieuwsItem->publicatiedatum }}</p>
+
+                                <form method="POST" action="{{ route('nieuws.destroy', $nieuwsItem) }}" class="mt-4">
+                                    @csrf
+                                    @method('DELETE')<!--extra confirmatie -->
+                                    <x-danger-button onclick="return confirm('Weet je zeker dat je dit artikel wilt verwijderen?')">
+                                        {{ __('Verwijder') }}
+                                    </x-danger-button>
+                                </form>
                             </div>
                         @endforeach
                     </div>

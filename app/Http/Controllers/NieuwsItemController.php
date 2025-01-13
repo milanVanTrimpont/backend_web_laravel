@@ -32,7 +32,18 @@ class NieuwsItemController extends Controller
 
         $nieuws->save();
 
-        return redirect()->route('nieuws')->with('status', 'news-created');
+        return redirect()->route('nieuws')->with('status', 'nieuw artikel geupload');
     }
+
+    public function destroy(NieuwsItem $nieuws)
+    {
+        // Verwijder het artikel
+        $nieuws->delete();
+
+        // Redirect met een flash bericht
+        return redirect()->route('nieuws')->with('status', 'Artikel succesvol verwijderd.');
+
+    }
+
 
 }
