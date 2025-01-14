@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\NieuwsItemController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,8 +17,7 @@ Route::get('/dashboard', function () {
 Route::get('profielen', [ProfileController::class, 'index'])->name('profielen');
 
 Route::get('/nieuws', [NieuwsItemController::class, 'index'])->name('nieuws');
-Route::post('/nieuws', [NieuwsItemController::class, 'store'])->name('nieuws.store');
-Route::delete('/nieuws/{nieuws}', [NieuwsItemController::class, 'destroy'])->name('nieuws.destroy');
+
 
 
 
@@ -30,6 +29,10 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('admin/dashboard', [HomeController::class, 'index'])->
-middleware(['auth','admin']);
 
+Route::middleware('auth','admin')->group(function () {
+    Route::get('admin/nieuws', [AdminController::class, 'index'])->name('admin.nieuws');
+    Route::post('admin/nieuws', [AdminController::class, 'store'])->name('nieuws.store');
+    Route::delete('admin/nieuws/{nieuws}', [AdminController::class, 'destroy'])->name('nieuws.destroy');
+
+});
