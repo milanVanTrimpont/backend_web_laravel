@@ -24,7 +24,7 @@ class FaqController extends Controller
     public function create()
     {
         $categorieën = Categorie::all();
-        return view('faqs.create', compact('categorieën'));
+        return view('faqs.bewerking', compact('categorieën'));
     }
 
     /**
@@ -72,6 +72,9 @@ class FaqController extends Controller
      */
     public function destroy(string $id)
     {
+        $faq = Faq::findOrFail($id);
+        $faq->delete();
     
+        return redirect()->back()->with('success', 'FAQ succesvol verwijderd');
     }
 }

@@ -22,7 +22,6 @@ Route::get('/nieuws', [NieuwsItemController::class, 'index'])->name('nieuws');
 
 Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
 
-Route::post('categorieën', [CategorieController::class, 'store'])->name('categorieën.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -37,9 +36,15 @@ Route::middleware('auth','admin')->group(function () {
     Route::get('admin/nieuws', [AdminController::class, 'index'])->name('admin.nieuws');
     Route::post('admin/nieuws', [AdminController::class, 'store'])->name('nieuws.store');
     Route::delete('admin/nieuws/{nieuws}', [AdminController::class, 'destroy'])->name('nieuws.destroy');
-    
-    Route::get('/faqs/create', [FaqController::class, 'create'])->name('faqs.create');
+
+
+    Route::get('faqs/bewerking', [FaqController::class, 'bewerking'])->name('faqs.bewerking');
+    Route::get('faqs/bewerking', [FaqController::class, 'create'])->name('faqs.create');
+    Route::delete('faq/{id}', [FAQController::class, 'destroy'])->name('faqs.destroy');
     Route::post('faqs', [FaqController::class, 'store'])->name('faqs.store');
 
+
+    Route::post('categorieën', [CategorieController::class, 'store'])->name('categorieën.store');
+    Route::delete('categorieën/{id}', [CategorieController::class, 'destroy'])->name('categorieën.destroy');
 
 });

@@ -14,7 +14,8 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        //
+        $categorieën = Categorie::all();
+        return view('categorieën.index', compact('categorieën'));
     }
 
     /**
@@ -58,6 +59,7 @@ class CategorieController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // 
     }
 
     /**
@@ -65,6 +67,9 @@ class CategorieController extends Controller
      */
     public function destroy(string $id)
     {
-        // 
+        $categorie = Categorie::findOrFail($id);
+        $categorie->delete();
+    
+        return redirect()->back()->with('success', 'Categorie succesvol verwijderd');
     }
 }
