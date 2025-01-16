@@ -1,5 +1,5 @@
 </section>
-    <form method="POST" action="{{ route('categorieën.destroy', $categorie->id) }}" class="mt-2" onsubmit="return confirm('Weet je zeker dat je deze categorie wilt verwijderen?');">
+    <form method="POST" action="{{ route('categorieën.destroy', $categorie->id) }}" class="mt-2" onsubmit="return confirm('Weet je zeker dat je deze categorie wilt verwijderen? Hiermee verwijder je ook alle FAQs bij deze categorie');">
 
         @csrf
         @method('DELETE')
@@ -12,6 +12,6 @@
                 @endforeach
             </select>
         <br>
-        <x-primary-button style="color: red; text-decoration: none;">{{ __('FAQ Verwijderen') }}</x-primary-button>
+        <x-danger-button>{{ __('FAQ Verwijderen') }}</x-danger-button>
     </form>
 </section>

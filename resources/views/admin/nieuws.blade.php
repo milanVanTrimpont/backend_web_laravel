@@ -19,16 +19,43 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         @foreach ($nieuwsItems as $nieuwsItem)
                             <div class="border rounded-lg p-4 shadow-md bg-gray-100">
-                                <h2 class="text-lg font-bold mb-2">{{ $nieuwsItem->titel }}</h2>
-                                @if ($nieuwsItem->foto)
-                                    <img src="{{ asset('storage/' . $nieuwsItem->foto) }}" alt="foto" class="mb-4">
-                                @endif
-                                <p>{{ Str::limit($nieuwsItem->content, 100) }}</p>
-                                <p class="text-sm text-gray-500 mt-2">Published: {{ $nieuwsItem->publicatiedatum }}</p>
+                            
+                                <form method="POST" action="{{ route('nieuws.update', $nieuwsItem) }}" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
 
+                                    <div>
+                                        <strong>Titel</strong>
+                                        <input id="titel" class="block mt-1 w-full" type="text" name="titel" value="{{ old('titel', $nieuwsItem->titel) }}" required autofocus />
+                                    </div>
+
+                                    <div class="mt-4">
+                                    <strong>Content</strong>
+                                        <textarea id="content" class="block mt-1 w-full" name="content" required>{{ old('content', $nieuwsItem->content) }}</textarea>
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <strong>Foto</strong>
+                                        <input id="foto" class="block mt-1 w-full" type="file" name="foto">
+                                        @if ($nieuwsItem->foto)
+                                            <img src="{{ asset('storage/' . $nieuwsItem->foto) }}" alt="foto" class="mt-2 w-32">
+                                        @endif
+                                    </div>
+                                    
+                                    <div class="mt-4">
+                                        <strong>publicatiedatum</strong>
+                                        <input id="publicatiedatum" class="block mt-1 w-full" type="date" name="publicatiedatum" value="{{ old('publicatiedatum', $nieuwsItem->publicatiedatum) }}" required />
+                                    </div>
+
+                                    <div class="flex items-center mt-4">
+                                        <x-primary-button>
+                                            {{ __('Opslaan') }}
+                                        </x-primary-button>
+                                    </div>
+                                </form>
                                 <form method="POST" action="{{ route('nieuws.destroy', $nieuwsItem) }}" class="mt-4">
                                     @csrf
-                                    @method('DELETE')<!--extra confirmatie -->
+                                    @method('DELETE')
                                     <x-danger-button onclick="return confirm('Weet je zeker dat je dit artikel wilt verwijderen?')">
                                         {{ __('Verwijder') }}
                                     </x-danger-button>

@@ -22,7 +22,7 @@ Route::get('mail', [ContactController::class, 'sendMail']);
 
 Route::get('profielen', [ProfileController::class, 'index'])->name('profielen');
 
-Route::get('/nieuws', [NieuwsItemController::class, 'index'])->name('nieuws');
+Route::get('nieuws', [NieuwsItemController::class, 'index'])->name('nieuws');
 
 Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
 
@@ -30,6 +30,7 @@ Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
 Route::middleware('auth')->group(function () {
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
+    
     Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
@@ -37,9 +38,12 @@ require __DIR__.'/auth.php';
 
 
 Route::middleware('auth','admin')->group(function () {
-    Route::get('nieuws/admin', [AdminController::class, 'index'])->name('admin.nieuws');
-    Route::post('nieuws/admin', [AdminController::class, 'store'])->name('nieuws.store');
-    Route::delete('nieuws/admin/{nieuws}', [AdminController::class, 'destroy'])->name('nieuws.destroy');
+    
+    Route::get('nieuws/admin', [NieuwsItemController::class, 'admin'])->name('admin.nieuws');
+    Route::post('nieuws/admin', [NieuwsItemController::class, 'store'])->name('nieuws.store');
+    Route::get('nieuws/admin/{NieuwsItem}/edit', [NieuwsItemController::class, 'edit'])->name('nieuws.edit');
+    Route::put('nieuws/admin/{nieuwsItem}', [NieuwsItemController::class, 'update'])->name('nieuws.update');
+    Route::delete('nieuws/admin/{NieuwsItem}', [NieuwsItemController::class, 'destroy'])->name('nieuws.destroy');
 
 
     Route::get('faqs/bewerking', [FaqController::class, 'bewerking'])->name('faqs.bewerking');
