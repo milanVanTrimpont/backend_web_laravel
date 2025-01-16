@@ -5,4 +5,5 @@
         @method('DELETE')
         <x-danger-button>Verwijder</x-danger-button>
     </form>
+    <br>
 </section

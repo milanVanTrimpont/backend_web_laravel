@@ -56,7 +56,10 @@ class FaqController extends Controller
      */
     public function edit(string $id)
     {
-       //
+
+       $faq = Faq::findOrFail($id);
+       $categorieën = Categorie::all();
+       return view('faqs.bewerking', compact('faq', 'categorieën'));
     }
 
     /**
@@ -64,7 +67,23 @@ class FaqController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Zoek de specifieke FAQ op
+        $faq = Faq::findOrFail($id);
+
+        // Valideer de gegevens
+        $request->validate([
+            'vraag' => 'required|string|max:255',
+            'antwoord' => 'required|string',
+        ]);
+
+        // Werk de FAQ bij
+        $faq->update([
+            'vraag' => $request->vraag,
+            'antwoord' => $request->antwoord,
+        ]);
+
+        // Redirect naar de FAQ-lijst met een succesbericht
+        return redirect()->back()->with('status', 'FAQ succesvol bijgewerkt!');
     }
 
     /**

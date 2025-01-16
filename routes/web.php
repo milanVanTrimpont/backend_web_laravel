@@ -46,10 +46,11 @@ Route::middleware('auth','admin')->group(function () {
     Route::delete('nieuws/admin/{NieuwsItem}', [NieuwsItemController::class, 'destroy'])->name('nieuws.destroy');
 
 
-    Route::get('faqs/bewerking', [FaqController::class, 'bewerking'])->name('faqs.bewerking');
     Route::get('faqs/bewerking', [FaqController::class, 'create'])->name('faqs.create');
-    Route::delete('faq/{id}', [FAQController::class, 'destroy'])->name('faqs.destroy');
-    Route::post('faqs', [FaqController::class, 'store'])->name('faqs.store');
+    Route::post('faqs/bewerking', [FaqController::class, 'store'])->name('faqs.store');
+    Route::get('faqs/bewerking/{id}/edit', [FaqController::class, 'edit'])->name('faqs.edit');
+    Route::put('faqs/bewerking/{id}', [FaqController::class, 'update'])->name('faqs.update');
+    Route::delete('faq/{id}', [FaqController::class, 'destroy'])->name('faqs.destroy');
 
 
     Route::post('categorieën', [CategorieController::class, 'store'])->name('categorieën.store');

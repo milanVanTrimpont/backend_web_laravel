@@ -38,14 +38,26 @@
                             <strong>{{ $categorie->naam }}</strong>
                             <ul class="list-disc list-inside mb-4">
                                 @forelse ($categorie->faqs as $faq)
-                                    <li>
-                                        <div class="faq-item">
-                                            <div class="faq-question"><strong>{{ $faq->vraag }}</strong></div>
-                                            <div class="faq-answer">{{ $faq->antwoord }}</div>
-                                            @include('faqs.partials.faq-verwijderen-form')
-                                        </div>
-                                        <br>
-                                    </li>
+
+                                <form method="POST" action="{{ route('faqs.update', $faq->id) }}" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+
+                                    <div class="mt-4">
+                                        <strong>vraag</strong>
+                                        <input id="vraag" class="block mt-1 w-full" type="text" name="vraag" value="{{ old('vraag', $faq->vraag) }}" required autofocus />
+                                    </div>
+
+                                    <div class="mt-4">
+                                    <strong>antwoord</strong>
+                                        <textarea id="antwoord" class="block mt-1 w-full" name="antwoord" required>{{ old('antwoord', $faq->antwoord) }}</textarea>
+                                    </div>
+
+                                    <div class="flex items-center mt-4">
+                                        <x-primary-button>{{ __('Opslaan') }}</x-primary-button>
+                                    </div>
+                                </form>
+                                    @include('faqs.partials.faq-verwijderen-form')
                                 @empty
                                     <li>Geen vragen beschikbaar in deze categorie.</li>
                                 @endforelse
