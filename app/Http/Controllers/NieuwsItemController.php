@@ -16,12 +16,12 @@ class NieuwsItemController extends Controller
     public function admin()
     {
         $nieuwsItems = NieuwsItem::orderBy('created_at', 'desc')->get();
-        return view('admin.nieuws', compact('nieuwsItems'));
+        return view('nieuws.bewerking', compact('nieuwsItems'));
     }
 
     public function edit(NieuwsItem $nieuwsItem)
     {
-        return view('admin.nieuws.edit', compact('nieuwsItem'));
+        return view('nieuws.bewerking.edit', compact('nieuwsItem'));
     }
 
     public function update(Request $request, NieuwsItem $nieuwsItem)
@@ -40,7 +40,7 @@ class NieuwsItemController extends Controller
     
         $updated = $nieuwsItem->update($validated);
     
-        return redirect()->route('admin.nieuws')->with('success', 'Nieuwsartikel bijgewerkt!');
+        return redirect()->route('nieuws.bewerking')->with('success', 'Nieuwsartikel bijgewerkt!');
     }
 
     public function store(Request $request)
@@ -61,7 +61,7 @@ class NieuwsItemController extends Controller
 
         $NieuwsItem->save();
 
-        return redirect()->route('admin.nieuws')->with('status', 'nieuw artikel geupload');
+        return redirect()->route('nieuws.bewerking')->with('status', 'nieuw artikel geupload');
     }
 
     public function destroy(NieuwsItem $NieuwsItem)
@@ -70,7 +70,7 @@ class NieuwsItemController extends Controller
         $NieuwsItem->delete();
 
         // Redirect met een flash bericht
-        return redirect()->route('admin.nieuws')->with('status', 'Artikel succesvol verwijderd.');
+        return redirect()->route('nieuws.bewerking')->with('status', 'Artikel succesvol verwijderd.');
 
     }
 

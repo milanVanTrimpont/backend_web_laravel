@@ -11,7 +11,7 @@
                 <!-- Formulier voor een nieuw artikel aan te maken -->
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                     <div class="max-w-xl">
-                        @include('admin.partials.nieuw-nieuwsartikel-form')
+                        @include('nieuws.partials.nieuw-nieuwsartikel-form')
                     </div>
                 </div>
                 <div class="p-6 text-gray-900">

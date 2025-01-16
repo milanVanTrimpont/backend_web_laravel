@@ -13,28 +13,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('profielen', [ProfileController::class, 'index'])->name('profielen');
+Route::get('nieuws', [NieuwsItemController::class, 'index'])->name('nieuws');
+Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
+Route::get('contact', [ContactController::class, 'showForm'])->name('contact');
+Route::post('contact', [ContactController::class, 'sendMail'])->name('contact.send');
+
+
 Route::get('/dashboard', function () 
 {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('mail', [ContactController::class, 'sendMail']);
-
-Route::get('profielen', [ProfileController::class, 'index'])->name('profielen');
-
-Route::get('nieuws', [NieuwsItemController::class, 'index'])->name('nieuws');
-
-Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
-
-
-Route::get('contact', [ContactController::class, 'showForm'])->name('contact');
-Route::post('contact', [ContactController::class, 'sendMail'])->name('contact.send');
 
 
 Route::middleware('auth')->group(function () {
+    // gedeelte voor ingelogde gebruikers om hun profiel aan te passen
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
-    
     Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
@@ -42,14 +38,14 @@ require __DIR__.'/auth.php';
 
 
 Route::middleware('auth','admin')->group(function () {
-    
-    Route::get('nieuws/admin', [NieuwsItemController::class, 'admin'])->name('admin.nieuws');
-    Route::post('nieuws/admin', [NieuwsItemController::class, 'store'])->name('nieuws.store');
-    Route::get('nieuws/admin/{NieuwsItem}/edit', [NieuwsItemController::class, 'edit'])->name('nieuws.edit');
-    Route::put('nieuws/admin/{nieuwsItem}', [NieuwsItemController::class, 'update'])->name('nieuws.update');
-    Route::delete('nieuws/admin/{NieuwsItem}', [NieuwsItemController::class, 'destroy'])->name('nieuws.destroy');
+    // gedeelte voor de admins om de nieuwspagina aan te passen
+    Route::get('nieuws/bewerking', [NieuwsItemController::class, 'admin'])->name('nieuws.bewerking');
+    Route::post('nieuws/bewerking', [NieuwsItemController::class, 'store'])->name('nieuws.store');
+    Route::get('nieuws/bewerking/{NieuwsItem}/edit', [NieuwsItemController::class, 'edit'])->name('nieuws.edit');
+    Route::put('nieuws/bewerking/{nieuwsItem}', [NieuwsItemController::class, 'update'])->name('nieuws.update');
+    Route::delete('nieuws/bewerking/{NieuwsItem}', [NieuwsItemController::class, 'destroy'])->name('nieuws.destroy');
 
-
+    //gedeelte voor de admins om de faq en categorieën aan te passen
     Route::get('faqs/bewerking', [FaqController::class, 'create'])->name('faqs.create');
     Route::post('faqs/bewerking', [FaqController::class, 'store'])->name('faqs.store');
     Route::get('faqs/bewerking/{id}/edit', [FaqController::class, 'edit'])->name('faqs.edit');
