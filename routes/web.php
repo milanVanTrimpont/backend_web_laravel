@@ -27,6 +27,10 @@ Route::get('nieuws', [NieuwsItemController::class, 'index'])->name('nieuws');
 Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
 
 
+Route::get('contact', [ContactController::class, 'showForm'])->name('contact');
+Route::post('contact', [ContactController::class, 'sendMail'])->name('contact.send');
+
+
 Route::middleware('auth')->group(function () {
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
