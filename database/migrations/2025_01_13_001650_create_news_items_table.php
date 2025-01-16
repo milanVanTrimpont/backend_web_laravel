@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('titel');
             $table->string('foto')->nullable();
             $table->text('content');
-            $table->date('publicatiedatum');
             $table->timestamps();
         });
     }

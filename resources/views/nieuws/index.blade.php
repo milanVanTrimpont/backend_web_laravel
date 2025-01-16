@@ -18,7 +18,8 @@
                                     <img src="{{ asset('storage/' . $nieuwsItem->foto) }}" alt="foto" class="mb-4">
                                 @endif
                                 <p>{{ Str::limit($nieuwsItem->content, 100) }}</p>
-                                <p class="text-sm text-gray-500 mt-2">Published: {{ $nieuwsItem->publicatiedatum }}</p>
+                                <p class="text-sm text-gray-500 mt-2">Publicatiedatum: {{ $nieuwsItem->created_at->format('d-m-Y') }}</p>
+                                <p class="text-sm text-gray-500 mt-2">Laatst bewerkt: {{ $nieuwsItem->updated_at->format('d-m-Y') }}</p>
                             </div>
                         @endforeach
                     </div>

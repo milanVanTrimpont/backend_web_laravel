@@ -9,5 +9,6 @@ class NieuwsItem extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titel', 'foto', 'content', 'publicatiedatum'];
+    protected $fillable = ['titel', 'foto', 'content'];
+    public $timestamps = true;
 }

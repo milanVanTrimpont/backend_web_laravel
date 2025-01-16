@@ -41,11 +41,6 @@
                                             <img src="{{ asset('storage/' . $nieuwsItem->foto) }}" alt="foto" class="mt-2 w-32">
                                         @endif
                                     </div>
-                                    
-                                    <div class="mt-4">
-                                        <strong>publicatiedatum</strong>
-                                        <input id="publicatiedatum" class="block mt-1 w-full" type="date" name="publicatiedatum" value="{{ old('publicatiedatum', $nieuwsItem->publicatiedatum) }}" required />
-                                    </div>
 
                                     <div class="flex items-center mt-4">
                                         <x-primary-button>
