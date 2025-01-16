@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -12,9 +13,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', function () 
+{
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('mail', [ContactController::class, 'sendMail']);
 
 Route::get('profielen', [ProfileController::class, 'index'])->name('profielen');
 
@@ -33,9 +37,9 @@ require __DIR__.'/auth.php';
 
 
 Route::middleware('auth','admin')->group(function () {
-    Route::get('admin/nieuws', [AdminController::class, 'index'])->name('admin.nieuws');
-    Route::post('admin/nieuws', [AdminController::class, 'store'])->name('nieuws.store');
-    Route::delete('admin/nieuws/{nieuws}', [AdminController::class, 'destroy'])->name('nieuws.destroy');
+    Route::get('nieuws/admin', [AdminController::class, 'index'])->name('admin.nieuws');
+    Route::post('nieuws/admin', [AdminController::class, 'store'])->name('nieuws.store');
+    Route::delete('nieuws/admin/{nieuws}', [AdminController::class, 'destroy'])->name('nieuws.destroy');
 
 
     Route::get('faqs/bewerking', [FaqController::class, 'bewerking'])->name('faqs.bewerking');
