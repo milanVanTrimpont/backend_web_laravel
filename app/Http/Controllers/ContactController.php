@@ -15,7 +15,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $forms = ContactForm::latest()->paginate(10);
+        return view('contact.bekijken', compact('forms'));
     }
 
 

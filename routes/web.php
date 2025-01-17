@@ -63,4 +63,8 @@ Route::middleware('auth','admin')->group(function () {
     Route::post('categorieën', [CategorieController::class, 'store'])->name('categorieën.store');
     Route::delete('categorieën/{id}', [CategorieController::class, 'destroy'])->name('categorieën.destroy');
 
+    // contact formulieren bekijken als admin
+    Route::get('contact/bekijken', [ContactController::class, 'index'])->name('contact.bekijken');
+
+
 });
