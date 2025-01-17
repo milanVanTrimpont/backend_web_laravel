@@ -9,9 +9,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
-
+//home pagina
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('kleding');
 });
 
 // gedeelte voor niet ingelogde gebruikers
@@ -22,10 +22,6 @@ Route::get('contact', [ContactController::class, 'showForm'])->name('contact');
 Route::post('contact', [ContactController::class, 'sendMail'])->name('contact.send');
 
 
-Route::get('/dashboard', function () 
-{
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
