@@ -86,6 +86,19 @@ yarn build
 ```
 ### Nu ben je klaar om mijn project te bekijken
 
+## hoe werkt alles
+Als niet ingelogde gebruiker kan je naar de kleding archief gaan, alle profielen en faqs bekijken en een contacfformulier invullen. <br>
+![image](https://github.com/user-attachments/assets/e76229a6-54f7-4894-9f88-4e0c1cdce471) <br>
+
+Als ingelogde gebruiker kan je hetzelfde doen en je profiel bovenaan aanpassen. <br>
+![image](https://github.com/user-attachments/assets/366f42d6-8db8-4465-8082-c5c7448ab312) <br>
+![image](https://github.com/user-attachments/assets/13c16c89-bc66-448a-a1b3-4d1cb4f7c2e8) <br>
+
+Als Admin kan je ook kleding, profielen en faqs bewerken, aanmaken en deleten. <br>
+![image](https://github.com/user-attachments/assets/d2bdd44e-71e5-40e8-b512-021f301afd7a)<br>
+![image](https://github.com/user-attachments/assets/97e13848-c6f5-41b3-abae-79f40935f61b)<br>
+![image](https://github.com/user-attachments/assets/109cab2d-66cb-4903-beb4-2714bf42edc3)<br>
+
 ## bronvermelding
 Ik heb enkele problemen met het tonen van mijn berichten met chatgpt omdat er foto's in voorkomen en chatgpt dit niet ondersteunt.
 ![image](https://github.com/user-attachments/assets/25a25b12-7ac3-423a-8ac8-4ee68e07055c)
