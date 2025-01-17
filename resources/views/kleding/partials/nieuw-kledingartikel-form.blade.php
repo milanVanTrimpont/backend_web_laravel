@@ -1,15 +1,15 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Maak een Nieuws Artikel') }}
+            {{ __('Maak een kleding Artikel') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Hier kun je een nieuw nieuwsartikel aanmaken en publiceren.") }}
+            {{ __("Hier kun je een nieuw kledingartikel aanmaken en publiceren.") }}
         </p>
     </header>
 
-    <form method="post" action="{{ route('nieuws.store') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
+    <form method="post" action="{{ route('kleding.store') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         <div>
             <x-input-label for="titel" :value="__('Titel')" />

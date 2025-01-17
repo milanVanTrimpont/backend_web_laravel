@@ -11,15 +11,20 @@
                 <div class="p-6 text-gray-900">
                     <h1 class="text-2xl font-bold mb-6">Gebruikers Profielen</h1>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                    <div class="max-w-xl">
+                        @include('profielen.partials.nieuwe-gebruiker')
+                    </div>
+                </div>
+
                         @foreach ($profielen as $profile)
                             <div class="border rounded-lg p-4 shadow-md bg-gray-100">
                                 <div class="flex items-center mb-4">
                                     
                                     <form method="POST" action="{{ route('profielen.updateAsAdmin', $profile->user_id) }}" enctype="multipart/form-data">
                                         @csrf
-                                        @method('PUT')
-
-                                        
+                                        @method('PUT')         
                                         <div class="mb-6">
                                             <label for="gebruikersnaam" class="block text-gray-700 font-medium">gebruikersnaam:</label>
                                             <input type="text" name="gebruikersnaam" id="gebruikersnaam" value="{{ old('gebruikersnaam', $profile->gebruikersnaam) }}" required class="mt-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">

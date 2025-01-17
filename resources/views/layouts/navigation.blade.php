@@ -17,11 +17,11 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('nieuws')" :active="request()->routeIs('nieuws')">
-                        {{ __('nieuws') }}
+                    <x-nav-link :href="route('kleding')" :active="request()->routeIs('kleding')">
+                        {{ __('kleding') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('nieuws.bewerking')" :active="request()->routeIs('nieuws.bewerking')">
-                        {{ __('nieuws bewerken') }}
+                    <x-nav-link :href="route('kleding.bewerking')" :active="request()->routeIs('kleding.bewerking')">
+                        {{ __('kleding bewerken') }}
                     </x-nav-link>
                     <x-nav-link :href="route('profielen')" :active="request()->routeIs('profielen')">
                         {{ __('Profielen') }}
@@ -47,8 +47,8 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('nieuws')" :active="request()->routeIs('nieuws')">
-                        {{ __('nieuws') }}
+                    <x-nav-link :href="route('kleding')" :active="request()->routeIs('kleding')">
+                        {{ __('kleding') }}
                     </x-nav-link>
                     <x-nav-link :href="route('profielen')" :active="request()->routeIs('profielen')">
                         {{ __('Profielen') }}

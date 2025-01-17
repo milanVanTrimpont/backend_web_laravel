@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\NieuwsItemController;
+use App\Http\Controllers\KledingItemController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,7 +16,7 @@ Route::get('/', function () {
 
 // gedeelte voor niet ingelogde gebruikers
 Route::get('profielen', [ProfileController::class, 'index'])->name('profielen');
-Route::get('nieuws', [NieuwsItemController::class, 'index'])->name('nieuws');
+Route::get('kleding', [KledingItemController::class, 'index'])->name('kleding');
 Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
 Route::get('contact', [ContactController::class, 'showForm'])->name('contact');
 Route::post('contact', [ContactController::class, 'sendMail'])->name('contact.send');
@@ -45,13 +46,15 @@ Route::middleware('auth','admin')->group(function () {
     Route::put('profielen/bewerking/{profiel}', [ProfileController::class, 'updateAsAdmin'])->name('profielen.updateAsAdmin');
     Route::put('profielen/bewerking/{userId}/change-usertype', [ProfileController::class, 'changeUserType'])->name('profielen.changeUserType');
     Route::delete('profielen/bewerking/{profiel}', [ProfileController::class, 'destroy'])->name('profielen.destroy');
+    Route::get('profielen/bewerking/create', [ProfileController::class, 'create'])->name('profielen.create');
+    Route::post('profielen/bewerking', [RegisteredUserController::class, 'store'])->name('profielen.store');
 
-    // gedeelte voor de admins om de nieuwspagina aan te passen
-    Route::get('nieuws/bewerking', [NieuwsItemController::class, 'admin'])->name('nieuws.bewerking');
-    Route::post('nieuws/bewerking', [NieuwsItemController::class, 'store'])->name('nieuws.store');
-    Route::get('nieuws/bewerking/{NieuwsItem}/edit', [NieuwsItemController::class, 'edit'])->name('nieuws.edit');
-    Route::put('nieuws/bewerking/{nieuwsItem}', [NieuwsItemController::class, 'update'])->name('nieuws.update');
-    Route::delete('nieuws/bewerking/{NieuwsItem}', [NieuwsItemController::class, 'destroy'])->name('nieuws.destroy');
+    // gedeelte voor de admins om de kledingpagina aan te passen
+    Route::get('kleding/bewerking', [KledingItemController::class, 'admin'])->name('kleding.bewerking');
+    Route::post('kleding/bewerking', [KledingItemController::class, 'store'])->name('kleding.store');
+    Route::get('kleding/bewerking/{kledingItem}/edit', [KledingItemController::class, 'edit'])->name('kleding.edit');
+    Route::put('kleding/bewerking/{kledingItem}', [KledingItemController::class, 'update'])->name('kleding.update');
+    Route::delete('kleding/bewerking/{kledingItem}', [KledingItemController::class, 'destroy'])->name('kleding.destroy');
 
     //gedeelte voor de admins om de faq en categorieën aan te passen
     Route::get('faqs/bewerking', [FaqController::class, 'create'])->name('faqs.create');

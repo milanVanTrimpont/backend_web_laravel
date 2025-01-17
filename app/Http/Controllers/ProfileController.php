@@ -131,6 +131,34 @@ class ProfileController extends Controller
         return redirect()->back()->with('status', 'Profiel succesvol bijgewerkt.');
     }
 
+    public function create()
+    {
+        return view('profielen.create');
+    }
+
+    /*nieuwe gebruijer aanmaken */ 
+    public function store(Request $request)
+    {
+        // Valideer de gegevens
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+            'usertype' => 'required|in:user,admin',
+        ]);
+
+        // Maak een nieuwe gebruiker
+        $user = User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']), // Versleutel wachtwoord
+            'usertype' => $validated['usertype'],
+        ]);
+
+        // Redirect naar een pagina met een succesbericht
+        return redirect()->back()->with('status', 'Gebruiker succesvol aangemaakt!');
+    }
+
     /**
      * Delete the user's account.
      */

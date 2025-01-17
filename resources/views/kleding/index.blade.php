@@ -11,15 +11,15 @@
                 <div class="p-6 text-gray-900">
                     <h1 class="text-2xl font-bold mb-6">Nieuws Items</h1>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        @foreach ($nieuwsItems as $nieuwsItem)
+                        @foreach ($kledingItems as $kledingItem)
                             <div class="border rounded-lg p-4 shadow-md bg-gray-100">
-                                <h2 class="text-lg font-bold mb-2">{{ $nieuwsItem->titel }}</h2>
-                                @if ($nieuwsItem->foto)
-                                    <img src="{{ asset('storage/' . $nieuwsItem->foto) }}" alt="foto" class="mb-4">
+                                <h2 class="text-lg font-bold mb-2">{{ $kledingItem->titel }}</h2>
+                                @if ($kledingItem->foto)
+                                    <img src="{{ asset('storage/' . $kledingItem->foto) }}" alt="foto" class="mb-4">
                                 @endif
-                                <p>{{ Str::limit($nieuwsItem->content, 100) }}</p>
-                                <p class="text-sm text-gray-500 mt-2">Publicatiedatum: {{ $nieuwsItem->created_at->format('d-m-Y') }}</p>
-                                <p class="text-sm text-gray-500 mt-2">Laatst bewerkt: {{ $nieuwsItem->updated_at->format('d-m-Y') }}</p>
+                                <p>{{ Str::limit($kledingItem->content, 100) }}</p>
+                                <p class="text-sm text-gray-500 mt-2">Publicatiedatum: {{ $kledingItem->created_at->format('d-m-Y') }}</p>
+                                <p class="text-sm text-gray-500 mt-2">Laatst bewerkt: {{ $kledingItem->updated_at->format('d-m-Y') }}</p>
                             </div>
                         @endforeach
                     </div>
