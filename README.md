@@ -69,6 +69,23 @@ Moest dit niet werken kan je ook elke class manueel toevoegen.
 php artisan db:seed --class=NaamVanSeeder
 ```
 
+maak de .env aan
+```bash
+cp .env.example .env
+```
+
+genereer de encriptie key
+```bash
+php artisan key:generatete
+```
+
+clear je cashe en config
+```bash
+php artisan config:clear
+php artisan cache:clear
+```
+
+
 ### 9. Start de development server
 Nu kun je de Laravel-development server starten:
 ```bash
