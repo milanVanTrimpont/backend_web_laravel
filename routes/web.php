@@ -44,6 +44,7 @@ Route::middleware('auth','admin')->group(function () {
     Route::delete('profielen/bewerking/{profiel}', [ProfileController::class, 'destroy'])->name('profielen.destroy');
     Route::get('profielen/bewerking/create', [ProfileController::class, 'create'])->name('profielen.create');
     Route::post('profielen/bewerking', [RegisteredUserController::class, 'store'])->name('profielen.store');
+    Route::delete('/profielen/bewerking/delete/{userId}', [ProfileController::class, 'deleteUser'])->name('profielen.delete');
 
     // gedeelte voor de admins om de kledingpagina aan te passen
     Route::get('kleding/bewerking', [KledingItemController::class, 'admin'])->name('kleding.bewerking');

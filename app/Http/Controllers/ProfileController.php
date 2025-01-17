@@ -179,4 +179,25 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function deleteUser($userId): RedirectResponse
+{
+
+    $user = User::findOrFail($userId);
+
+    // Verwijder de gekoppelde profielfoto als die bestaat
+    if ($user->profile && $user->profile->profielfoto) {
+        Storage::disk('public')->delete($user->profile->profielfoto);
+    }
+
+    // Verwijder het profiel
+    if ($user->profile) {
+        $user->profile->delete();
+    }
+
+    // Verwijder de gebruiker
+    $user->delete();
+
+    return redirect()->route('profielen.bewerking')->with('status', 'Gebruiker succesvol verwijderd.');
+}
 }

@@ -63,6 +63,14 @@
                                         </div>
                                     </form>
                                 </div>
+                                <form method="POST" action="{{ route('profielen.delete', $profile->user_id) }}" onsubmit="return confirm('Weet je zeker dat je deze gebruiker wilt verwijderen?');">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <x-danger-button>
+                                        {{ __('Verwijder Gebruiker') }}
+                                    </x-danger-button>
+                                </form>
                             </div>
                         @endforeach
                     </div>
