@@ -26,7 +26,7 @@
                     <x-nav-link :href="route('profielen')" :active="request()->routeIs('profielen')">
                         {{ __('Profielen') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('profielen')" :active="request()->routeIs('profielen')">
+                    <x-nav-link :href="route('profielen.bewerking')" :active="request()->routeIs('profielen.bewerking')">
                         {{ __('Profielen bewerken') }}
                     </x-nav-link>
                     <x-nav-link :href="route('faqs')" :active="request()->routeIs('faqs')">

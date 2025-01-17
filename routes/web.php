@@ -13,6 +13,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// gedeelte voor niet ingelogde gebruikers
 Route::get('profielen', [ProfileController::class, 'index'])->name('profielen');
 Route::get('nieuws', [NieuwsItemController::class, 'index'])->name('nieuws');
 Route::get('faqs', [FaqController::class, 'index'])->name('faqs');
@@ -38,6 +39,13 @@ require __DIR__.'/auth.php';
 
 
 Route::middleware('auth','admin')->group(function () {
+    // gedeelte voor de admins om de gebruikers aan te passen
+    Route::get('profielen/bewerking', [ProfileController::class, 'admin'])->name('profielen.bewerking');
+    Route::get('profielen/bewerking/{profiel}/edit', [ProfileController::class, 'editAsAdmin'])->name('profielen.editAsAdmin');
+    Route::put('profielen/bewerking/{profiel}', [ProfileController::class, 'updateAsAdmin'])->name('profielen.updateAsAdmin');
+    Route::put('profielen/bewerking/{userId}/change-usertype', [ProfileController::class, 'changeUserType'])->name('profielen.changeUserType');
+    Route::delete('profielen/bewerking/{profiel}', [ProfileController::class, 'destroy'])->name('profielen.destroy');
+
     // gedeelte voor de admins om de nieuwspagina aan te passen
     Route::get('nieuws/bewerking', [NieuwsItemController::class, 'admin'])->name('nieuws.bewerking');
     Route::post('nieuws/bewerking', [NieuwsItemController::class, 'store'])->name('nieuws.store');
