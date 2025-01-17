@@ -45,12 +45,12 @@
 
                                     <div class="mt-4">
                                         <strong>vraag</strong>
-                                        <input id="vraag" class="block mt-1 w-full" type="text" name="vraag" value="{{ old('vraag', $faq->vraag) }}" required autofocus />
+                                        <input id="vraag" class="mt-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" type="text" name="vraag" value="{{ old('vraag', $faq->vraag) }}" required autofocus />
                                     </div>
 
                                     <div class="mt-4">
                                     <strong>antwoord</strong>
-                                        <textarea id="antwoord" class="block mt-1 w-full" name="antwoord" required>{{ old('antwoord', $faq->antwoord) }}</textarea>
+                                        <textarea id="antwoord" class="mt-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" name="antwoord" required>{{ old('antwoord', $faq->antwoord) }}</textarea>
                                     </div>
 
                                     <div class="flex items-center mt-4">
