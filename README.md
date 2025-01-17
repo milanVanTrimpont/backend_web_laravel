@@ -106,7 +106,7 @@ Ik heb enkele problemen met het tonen van mijn berichten met chatgpt omdat er fo
 ![image](https://github.com/user-attachments/assets/25a25b12-7ac3-423a-8ac8-4ee68e07055c)
 
 profielpagina --https://chatgpt.com/share/678ac767-2468-8007-b38b-68e89cf2f2b9 <br>
-kledingItems en faq --https://chatgpt.com/share/678ac8af-4700-8007-af98-e2b0c5e70be6 <br>
+kledingItems en faq --https://chatgpt.com/share/678ac8af-4700-8007-af98-e2b0c5e70be6 https://chatgpt.com/share/678adb4c-5ad4-8007-a76f-82c2ca38541e<br>
 contact/mail https://www.youtube.com/watch?v=xigpoxOW1MY&ab_channel=MattSocha <br>
 js faq https://www.youtube.com/watch?v=ioa8T4tA4zg&t=1s&ab_channel=NickBabich <br>
 profielen bewerken --https://chatgpt.com/share/678ac8e3-625c-8007-8b81-21fed92d3ee8 https://chatgpt.com/share/678ac903-8a78-8007-9035-92f88a790142 <br>
