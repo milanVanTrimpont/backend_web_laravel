@@ -94,10 +94,12 @@ Als ingelogde gebruiker kan je hetzelfde doen en je profiel bovenaan aanpassen. 
 ![image](https://github.com/user-attachments/assets/366f42d6-8db8-4465-8082-c5c7448ab312) <br>
 ![image](https://github.com/user-attachments/assets/13c16c89-bc66-448a-a1b3-4d1cb4f7c2e8) <br>
 
-Als Admin kan je ook kleding, profielen en faqs bewerken, aanmaken en deleten. <br>
+Als Admin kan je ook kleding, profielen en faqs bewerken, aanmaken, deleten en alle contact formulieren bekijken.. <br>
 ![image](https://github.com/user-attachments/assets/d2bdd44e-71e5-40e8-b512-021f301afd7a)<br>
-![image](https://github.com/user-attachments/assets/97e13848-c6f5-41b3-abae-79f40935f61b)<br>
+![image](https://github.com/user-attachments/assets/cfdd6de4-3e26-4224-851a-fe7a646ea126)<br>
 ![image](https://github.com/user-attachments/assets/109cab2d-66cb-4903-beb4-2714bf42edc3)<br>
+![image](https://github.com/user-attachments/assets/07c4c4c7-2546-4dd6-a623-edf5f04ce7af)<br>
+
 
 ## bronvermelding
 Ik heb enkele problemen met het tonen van mijn berichten met chatgpt omdat er foto's in voorkomen en chatgpt dit niet ondersteunt.
