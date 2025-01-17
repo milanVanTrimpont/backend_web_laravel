@@ -33,7 +33,7 @@ class ContactController extends Controller
 
         Mail::to('fake@mail.com')->send(new Contact($contactForm));
 
-        return redirect()->route('contact.form')->with('status', 'Je bericht is verzonden!');
+        return redirect()->back()->with('status', 'Je bericht is verzonden!');
     }
 
     public function showForm()

@@ -19,19 +19,19 @@
 
                     <div>
                         <label for="email">Email</label>
-                        <input id="email" class="block mt-1 w-full" type="email" name="email" value="{{ old('email') }}" required />
+                        <input id="email" class="mt-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" type="email" name="email" value="{{ old('email') }}" required />
                         @error('email')<span class="text-red-500 text-sm">{{ $message }}</span>@enderror
                     </div>
 
                     <div class="mt-4">
                         <label for="onderwerp">Onderwerp</label>
-                        <input id="onderwerp" class="block mt-1 w-full" type="text" name="onderwerp" value="{{ old('onderwerp') }}" required />
+                        <input id="onderwerp" class="mt-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" type="text" name="onderwerp" value="{{ old('onderwerp') }}" required />
                         @error('onderwerp')<span class="text-red-500 text-sm">{{ $message }}</span>@enderror
                     </div>
 
                     <div class="mt-4">
                         <label for="vraag">Vraag</label>
-                        <textarea id="vraag" class="block mt-1 w-full" name="vraag" required>{{ old('vraag') }}</textarea>
+                        <textarea id="vraag" class="mt-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" name="vraag" required>{{ old('vraag') }}</textarea>
                         @error('vraag')<span class="text-red-500 text-sm">{{ $message }}</span>@enderror
                     </div>
 
