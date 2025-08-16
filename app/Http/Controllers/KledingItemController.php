@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\KledingItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class KledingItemController extends Controller
 {
@@ -67,7 +69,10 @@ class KledingItemController extends Controller
 
     public function destroy(KledingItem $kledingItem)
     {
-        
+        // als er een foto is, deze uit de public verwijderen
+        if ($kledingItem->foto && Storage::disk('public')->exists($kledingItem->foto)) {
+            Storage::disk('public')->delete($kledingItem->foto);
+        }
         // Verwijder het artikel
         $kledingItem->delete();
 

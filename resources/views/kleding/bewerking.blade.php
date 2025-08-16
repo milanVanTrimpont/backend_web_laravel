@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="p-6 text-gray-900">
-                    <h1 class="text-2xl font-bold mb-6">kleding Items</h1>
+                    <h1 class="text-2xl font-bold mb-6">Kleding items bewerken</h1>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         @foreach ($kledingItems as $kledingItem)
                             <div class="border rounded-lg p-4 shadow-md bg-gray-100">
