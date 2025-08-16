@@ -12,6 +12,7 @@
                     <h1 class="text-2xl font-bold mb-6">Hier zie je een overzicht met de kleding archief</h1>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         @foreach ($kledingItems as $kledingItem)
+                        <a href="{{ route('kleding.show', $kledingItem->id) }}">
                             <div class="border rounded-lg p-4 shadow-md bg-gray-100">
                                 <h2 class="text-lg font-bold mb-2">{{ $kledingItem->titel }}</h2>
                                 @if ($kledingItem->foto)
@@ -21,6 +22,7 @@
                                 <p class="text-sm text-gray-500 mt-2">Publicatiedatum: {{ $kledingItem->created_at->format('d-m-Y') }}</p>
                                 <p class="text-sm text-gray-500 mt-2">Laatst bewerkt: {{ $kledingItem->updated_at->format('d-m-Y') }}</p>
                             </div>
+                        </a>    
                         @endforeach
                     </div>
                 </div>

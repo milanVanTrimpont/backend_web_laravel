@@ -15,6 +15,12 @@ class KledingItemController extends Controller
         return view('kleding.index', compact('kledingItems'));
     }
 
+    public function show($id)
+{
+    $kledingItem = KledingItem::with('comments.user')->findOrFail($id); 
+    return view('kleding.show', compact('kledingItem'));
+}
+
     public function admin()
     {
         $kledingItems = KledingItem::orderBy('created_at', 'desc')->get();

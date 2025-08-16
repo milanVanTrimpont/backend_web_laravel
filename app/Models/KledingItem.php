@@ -11,4 +11,10 @@ class KledingItem extends Model
 
     protected $fillable = ['titel', 'foto', 'content'];
     public $timestamps = true;
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 }
