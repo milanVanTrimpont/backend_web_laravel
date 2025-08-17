@@ -50,6 +50,17 @@
                                 <form method="POST" action="{{ route('faqs.update', $faq->id) }}" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
+                                    <div class="mt-4">
+                                        <strong>categorie</strong>
+                                        <select name="categorie_id" id="categorie_id" required
+                                                class="mt-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                            @foreach ($categorieën as $categorie)
+                                                <option value="{{ $categorie->id }}" {{ $faq->categorie_id == $categorie->id ? 'selected' : '' }}>
+                                                    {{ $categorie->naam }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
                                     <div class="mt-4">
                                         <strong>vraag</strong>

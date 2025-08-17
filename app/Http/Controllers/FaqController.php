@@ -72,12 +72,14 @@ class FaqController extends Controller
 
         // Valideer de gegevens
         $request->validate([
+            'categorie_id' => 'required|exists:categorieën,id',
             'vraag' => 'required|string|max:255',
             'antwoord' => 'required|string',
         ]);
 
         // Werk de FAQ bij
         $faq->update([
+            'categorie_id' => $request->categorie_id,
             'vraag' => $request->vraag,
             'antwoord' => $request->antwoord,
         ]);
