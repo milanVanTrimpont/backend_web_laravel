@@ -13,7 +13,15 @@
                 </div>
             </div>
 
-
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <div class="max-w-xl">
+                @foreach ($categorieën as $categorie)
+                        @endforeach
+                        <h3 class="text-xl font-semibold mb-4">Categorie updaten</h3>
+                        <!--update formulier-->
+                        @include('faqs.partials.update-categorie-form', ['categorie' => $categorie])
+                </div>
+            </div>
 
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="max-w-xl">

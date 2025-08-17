@@ -6,16 +6,16 @@
     </x-slot>
 
     <div class="py-8">
-        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 space-y-6">
+        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
             {{-- Kleding item card --}}
             <div class="bg-white shadow sm:rounded-lg p-6">
                 <p class="text-gray-700 whitespace-pre-line">{{ $kledingItem->content }}</p>
 
                 @if($kledingItem->foto)
-                    <img
-                        src="{{ asset('storage/kleding/' . $kledingItem->foto) }}"
-                        alt="Foto van {{ $kledingItem->titel }}"
-                        class="mt-4 rounded-lg w-full object-cover"
+                <img 
+                    src="{{ asset('storage/' . $kledingItem->foto) }}" 
+                    alt="Foto van {{ $kledingItem->titel }}" 
+                    class="mt-4 rounded-lg w-full object-cover"
                     >
                 @endif
             </div>
@@ -38,12 +38,7 @@
                                 <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
-
-                        <button
-                            type="submit"
-                            class="inline-flex items-center px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-black hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                            Plaats reactie
-                        </button>
+                        <x-primary-button>{{ __('Plaats reactie') }}</x-primary-button>
                     </form>
                 </div>
             @else
@@ -62,8 +57,12 @@
                 </h3>
 
                 <div class="mt-4 space-y-6">
-                    @forelse($kledingItem->comments as $comment)
-                        <div class="border-b pb-4 last:border-0 last:pb-0">
+                    @forelse($kledingItem->comments->sortByDesc('created_at') as $comment)
+                        <div class="border rounded-lg p-4 mt-4 bg-gray-65">
+                            <p class="text-gray-800 whitespace-pre-line mb-3">
+                                {{ $comment->body }}
+                            </p>
+
                             <div class="flex items-center gap-2 text-sm text-gray-500">
                                 <span class="font-semibold text-gray-800">
                                     {{ $comment->user->name ?? 'Onbekend' }}
@@ -71,9 +70,6 @@
                                 <span>•</span>
                                 <span>{{ $comment->created_at->diffForHumans() }}</span>
                             </div>
-                            <p class="mt-2 text-gray-800 whitespace-pre-line">
-                                {{ $comment->body }}
-                            </p>
                         </div>
                     @empty
                         <p class="text-gray-600">Er zijn nog geen reacties.</p>

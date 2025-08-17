@@ -74,8 +74,8 @@
             Route::delete('{id}', [FaqController::class, 'destroy'])->name('destroy');
         });
         // categorieën aanpassen
-        Route::post('categorieën', [CategorieController::class, 'store'])->name('categorieën.store');
-        Route::delete('categorieën/{id}', [CategorieController::class, 'destroy'])->name('categorieën.destroy');
+        Route::resource('categorieën', CategorieController::class)->names('categorieën');
+
 
         // contact formulieren bekijken als admin
         Route::get('contact/bekijken', [ContactController::class, 'index'])->name('contact.bekijken');

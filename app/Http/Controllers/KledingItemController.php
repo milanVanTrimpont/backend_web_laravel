@@ -16,10 +16,10 @@ class KledingItemController extends Controller
     }
 
     public function show($id)
-{
-    $kledingItem = KledingItem::with('comments.user')->findOrFail($id); 
-    return view('kleding.show', compact('kledingItem'));
-}
+    {
+        $kledingItem = KledingItem::with('comments.user')->findOrFail($id); 
+        return view('kleding.show', compact('kledingItem'));
+    }
 
     public function admin()
     {
@@ -48,8 +48,14 @@ class KledingItemController extends Controller
         }
     
         $updated = $kledingItem->update($validated);
-    
-        return redirect()->route('kleding.bewerking')->with('success', 'kledingartikel bijgewerkt!');
+
+        if ($updated) 
+        {
+            return redirect()->route('kleding.bewerking')->with('success', 'Kledingartikel bijgewerkt!');
+        } else 
+        {
+            return redirect()->route('kleding.bewerking')->with('error', 'Er is iets misgegaan bij het bijwerken.');
+        }
     }
 
     public function store(Request $request)

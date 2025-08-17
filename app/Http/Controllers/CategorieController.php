@@ -51,7 +51,8 @@ class CategorieController extends Controller
      */
     public function edit(string $id)
     {
-        // 
+        $categorie = Categorie::findOrFail($id);
+        return view('categorieën.edit', compact('categorie'));
     }
 
     /**
@@ -59,7 +60,16 @@ class CategorieController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // 
+        $request->validate([
+            'naam' => 'required|string|max:255'
+        ]);
+
+        $categorie = Categorie::findOrFail($id);
+        $categorie->update([
+            'naam' => $request->naam
+        ]);
+
+        return redirect()->back()->with('success', 'Categorie succesvol bijgewerkt!');
     }
 
     /**
