@@ -80,7 +80,7 @@ cp .env.example .env
 
 genereer de encriptie key
 ```bash
-php artisan key:generatete
+php artisan key:generate
 ```
 
 clear je cashe en config
