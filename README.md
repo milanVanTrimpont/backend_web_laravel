@@ -111,6 +111,9 @@ yarn build
 Als niet ingelogde gebruiker kan je naar de kleding archief gaan, alle profielen en faqs bekijken en een contacfformulier invullen. <br>
 ![image](https://github.com/user-attachments/assets/e76229a6-54f7-4894-9f88-4e0c1cdce471) <br>
 
+
+Je kan ook op kleding stukken klikken om comments achter te laten.<br><img width="766" height="401" alt="Screenshot 2025-08-18 235926" src="https://github.com/user-attachments/assets/aced1964-514e-4235-8f83-fd4d21a16af2" />
+
 Als ingelogde gebruiker kan je hetzelfde doen en je profiel bovenaan aanpassen. <br>
 ![image](https://github.com/user-attachments/assets/366f42d6-8db8-4465-8082-c5c7448ab312) <br>
 ![image](https://github.com/user-attachments/assets/13c16c89-bc66-448a-a1b3-4d1cb4f7c2e8) <br>
