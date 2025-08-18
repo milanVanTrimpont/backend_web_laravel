@@ -43,8 +43,13 @@ class KledingItemController extends Controller
         ]);
     
         if ($request->hasFile('foto')) {
+            // oude foto verwijderen (als die er is)
+            if ($kledingItem->foto && Storage::disk('public')->exists($kledingItem->foto)) {
+                Storage::disk('public')->delete($kledingItem->foto);
+            }
+    
+            // nieuwe foto opslaan
             $validated['foto'] = $request->file('foto')->store('kleding', 'public');
-            info('Foto opgeslagen:', ['path' => $validated['foto']]);
         }
     
         $updated = $kledingItem->update($validated);
@@ -71,7 +76,7 @@ class KledingItemController extends Controller
         $kledingItem->content = $validated['content'];
 
         if ($request->hasFile('foto')) {
-            $kledingItem->foto = $request->file('foto')->store('kleding_fotos', 'public');
+            $kledingItem->foto = $request->file('foto')->store('kleding', 'public');
         }
 
         $kledingItem->save();

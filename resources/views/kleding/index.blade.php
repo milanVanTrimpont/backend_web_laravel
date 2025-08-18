@@ -16,7 +16,11 @@
                             <div class="border rounded-lg p-4 shadow-md bg-gray-100">
                                 <h2 class="text-lg font-bold mb-2">{{ $kledingItem->titel }}</h2>
                                 @if ($kledingItem->foto)
-                                    <img src="{{ asset('storage/' . $kledingItem->foto) }}" alt="foto" class="mb-4">
+                                    <div class="w-full aspect-[4/3] mb-4 overflow-hidden rounded-md">
+                                        <img src="{{ asset('storage/' . $kledingItem->foto) }}" 
+                                            alt="foto" 
+                                            class="w-full h-full object-cover">
+                                    </div>
                                 @endif
                                 <p>{{ Str::limit($kledingItem->content, 100) }}</p>
                                 <p class="text-sm text-gray-500 mt-2">Publicatiedatum: {{ $kledingItem->created_at->format('d-m-Y') }}</p>
