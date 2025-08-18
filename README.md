@@ -118,7 +118,9 @@ Als ingelogde gebruiker kan je hetzelfde doen en je profiel bovenaan aanpassen. 
 Als Admin kan je ook kleding, profielen en faqs bewerken, aanmaken, deleten en alle contact formulieren bekijken.. <br>
 ![image](https://github.com/user-attachments/assets/d2bdd44e-71e5-40e8-b512-021f301afd7a)<br>
 ![image](https://github.com/user-attachments/assets/cfdd6de4-3e26-4224-851a-fe7a646ea126)<br>
-![image](https://github.com/user-attachments/assets/109cab2d-66cb-4903-beb4-2714bf42edc3)<br>
+![image](<img width="1515" height="740" alt="image" src="https://github.com/user-attachments/assets/e191e765-41e8-4944-8ce5-9c439628a6a7" />)<br>
+![image](<img width="1134" height="755" alt="image" src="https://github.com/user-attachments/assets/236a9c1b-6084-4d96-b81e-24483166fd67" />)<br>
+![image](<img width="1134" height="755" alt="image" src="https://github.com/user-attachments/assets/3f2c1d52-5ed0-4e19-bda1-42eee4d9c920" />)<br>
 ![image](https://github.com/user-attachments/assets/07c4c4c7-2546-4dd6-a623-edf5f04ce7af)<br>
 
 
