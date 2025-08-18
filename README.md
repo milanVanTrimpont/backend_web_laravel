@@ -52,7 +52,7 @@ yarn install
 ### 5. start het project op
 ga naar de root in je wsl omgeving en type:
 ```bash
-code backedn_web_laravel
+code backend_web_laravel
 ```
 ### 6. Database connectie + data toevoegen
 Stel de juiste databasegegevens in het .env bestand in, zoals je databasegebruikersnaam, wachtwoord en database naam. 
