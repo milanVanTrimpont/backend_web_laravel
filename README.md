@@ -69,6 +69,10 @@ Moest dit niet werken kan je ook elke class manueel toevoegen.
 php artisan db:seed --class=NaamVanSeeder
 ```
 
+Vergeet geen link te leggen.
+```bash
+php artisan storage:link
+```
 maak de .env aan
 ```bash
 cp .env.example .env
