@@ -55,7 +55,16 @@ ga naar de root in je wsl omgeving en type:
 code backend_web_laravel
 ```
 ### 6. Database connectie + data toevoegen
-Stel de juiste databasegegevens in het .env bestand in, zoals je databasegebruikersnaam, wachtwoord en database naam. 
+Stel de juiste databasegegevens in het .env bestand in, zoals je databasegebruikersnaam, wachtwoord en database naam. <br>
+maak de .env aan
+```bash
+cp .env.example .env
+```
+
+genereer de encriptie key
+```bash
+php artisan key:generate
+```
 Voer de migraties uit om de database aan te maken en de benodigde tabellen te genereren:
 ```bash
 php artisan migrate
@@ -73,27 +82,11 @@ Vergeet geen link te leggen.
 ```bash
 php artisan storage:link
 ```
-maak de .env aan
-```bash
-cp .env.example .env
-```
-
-genereer de encriptie key
-```bash
-php artisan key:generate
-```
 
 clear je cashe en config
 ```bash
 php artisan config:clear
 php artisan cache:clear
-```
-
-
-### 9. Start de development server
-Nu kun je de Laravel-development server starten:
-```bash
-php artisan serve
 ```
 
 ### Bouw de front-end assets
@@ -105,6 +98,12 @@ Dit zal de assets bouwen voor de development omgeving. Als je klaar bent met de 
 ```bash
 yarn build
 ```
+
+### 9. Start de development server
+Nu kun je de Laravel-development server starten:
+```bash
+php artisan serve
+```
 ### Nu ben je klaar om mijn project te bekijken
 
 ## hoe werkt alles
@@ -112,18 +111,23 @@ Als niet ingelogde gebruiker kan je naar de kleding archief gaan, alle profielen
 ![image](https://github.com/user-attachments/assets/e76229a6-54f7-4894-9f88-4e0c1cdce471) <br>
 
 
-Je kan ook op kleding stukken klikken om comments achter te laten.<br><img width="766" height="401" alt="Screenshot 2025-08-18 235926" src="https://github.com/user-attachments/assets/aced1964-514e-4235-8f83-fd4d21a16af2" />
+Je kan ook op kleding stukken klikken om comments te bekijken.<br>
+<img width="705" height="286" alt="Screenshot 2025-08-21 232933" src="https://github.com/user-attachments/assets/37f9d2c0-72d5-4c6e-aeee-0fd2e9923ae5" /><br>
 
-Als ingelogde gebruiker kan je hetzelfde doen en je profiel bovenaan aanpassen. <br>
+Als ingelogde gebruiker kan je hetzelfde doen + comments achterlaten en je profiel bovenaan aanpassen. <br>
 ![image](https://github.com/user-attachments/assets/366f42d6-8db8-4465-8082-c5c7448ab312) <br>
+<img width="1339" height="490" alt="Screenshot 2025-08-21 233732" src="https://github.com/user-attachments/assets/eb8dc79d-1a3f-483d-a9cd-680f441b6c3a" /><br>
 ![image](https://github.com/user-attachments/assets/13c16c89-bc66-448a-a1b3-4d1cb4f7c2e8) <br>
 
 Als Admin kan je ook kleding, profielen en faqs bewerken, aanmaken, deleten en alle contact formulieren bekijken.. <br>
 ![image](https://github.com/user-attachments/assets/d2bdd44e-71e5-40e8-b512-021f301afd7a)<br>
 ![image](https://github.com/user-attachments/assets/cfdd6de4-3e26-4224-851a-fe7a646ea126)<br>
+<img width="958" height="510" alt="Screenshot 2025-08-21 233222" src="https://github.com/user-attachments/assets/3f38af80-94e5-4ab8-8e31-cf5589d915b0" /><br>
+
 <img width="1135" height="805" alt="sccategorie" src="https://github.com/user-attachments/assets/ede17217-1a09-463b-be7a-79b166ae6265" />
 <img width="1131" height="503" alt="Screenshot 2025-08-18 235534" src="https://github.com/user-attachments/assets/339fec4c-49db-400a-9d6d-b747d2ae7db8" />
-![image](https://github.com/user-attachments/assets/07c4c4c7-2546-4dd6-a623-edf5f04ce7af)<br>
+<img width="1511" height="535" alt="Screenshot 2025-08-21 233924" src="https://github.com/user-attachments/assets/b7a021a6-de4e-4b3c-ac49-e6df48627b0c" />
+<br>
 
 
 ## bronvermelding
