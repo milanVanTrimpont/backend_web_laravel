@@ -64,7 +64,7 @@
 
                                     <div class="mt-4">
                                         <strong>vraag</strong>
-                                        <input id="vraag" class="mt-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" type="text" name="vraag" value="{{ old('vraag', $faq->vraag) }}" required autofocus />
+                                        <input id="vraag" class="mt-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" type="text" name="vraag" value="{{ old('vraag', $faq->vraag) }}" required />
                                     </div>
 
                                     <div class="mt-4">
