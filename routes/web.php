@@ -64,6 +64,9 @@
             Route::put('{kledingItem}', [KledingItemController::class, 'update'])->name('update');
             Route::delete('{kledingItem}', [KledingItemController::class, 'destroy'])->name('destroy');
         });
+
+        // comments verwijderen
+        Route::delete('comment/{id}', [CommentController::class, 'destroy'])->name('comment.destroy');
         
         // faq aanpassen
         Route::prefix('faqs/bewerking')->name('faqs.')->group(function () {

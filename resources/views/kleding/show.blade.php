@@ -70,6 +70,16 @@
                                 <span>•</span>
                                 <span>{{ $comment->created_at->diffForHumans() }}</span>
                             </div>
+                            @if(auth()->check() && auth()->user()->usertype === 'admin')
+                            <form action="{{ route('comment.destroy', $comment->id) }}" method="POST" class="mt-2" onsubmit="return confirm('Weet je zeker dat je deze reactie wil verwijderen?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <x-danger-button>
+                                        Verwijder
+                                    </x-danger-button>
+                                </form>
+                            @endif
+
                         </div>
                     @empty
                         <p class="text-gray-600">Er zijn nog geen reacties.</p>

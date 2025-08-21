@@ -24,4 +24,15 @@ public function store(Request $request, $kledingItemId)
 
 }
 
+
+public function destroy($id)
+{
+    $comment = Comment::findOrFail($id);
+        // comment verwijderen
+        $comment->delete();
+        return back()->with('success', 'Comment verwijderd!');
+    
+    return redirect()->back()->with('success', 'Categorie succesvol verwijderd');
+}
+
 }
